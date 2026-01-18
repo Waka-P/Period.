@@ -1,0 +1,52 @@
+.conditionCard {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1.5rem 0;
+  padding: 1.5rem 1rem;
+  border-radius: 1rem;
+  background: linear-gradient(
+    135deg,
+    var(--athlete-primary-transparent),
+    var(--athlete-primary)
+  );
+}
+
+.conditionIcon {
+  font-size: 2rem;
+  color: #770030;
+  flex-shrink: 0;
+}
+
+.conditionInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.conditionText {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--athlete-accent);
+}
+
+.adviceText {
+  font-size: 0.8rem;
+  color: #770030;
+}
+
+.trainerTheme.conditionCard {
+  background: linear-gradient(135deg, #9eedb244, var(--trainer-primary));
+}
+
+.trainerTheme .conditionIcon {
+  color: #005014;
+}
+
+.trainerTheme .conditionText {
+  color: var(--trainer-accent);
+}
+
+.trainerTheme .adviceText {
+  color: #005014;
+}

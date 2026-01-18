@@ -1,0 +1,33 @@
+.circleContainer {
+  position: relative;
+  display: inline-block;
+}
+
+.svg {
+  transform: rotate(-90deg);
+}
+
+.progressCircle {
+  transition: stroke-dashoffset 600ms ease-out;
+}
+
+.textContainer {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.level {
+  font-weight: bold;
+  color: #111827;
+  line-height: 1;
+}
+
+.label {
+  color: #6b7280;
+  margin-top: 0.1em;
+  line-height: 1;
+}

@@ -1,0 +1,213 @@
+.scroll {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  gap: 0.8rem;
+  overflow-x: auto;
+  padding: 1.5rem 1rem;
+  padding-top: 4rem;
+  color: #770030;
+  border-bottom: 1px solid var(--athlete-primary);
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.day {
+  min-width: 45px;
+  height: 4.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4px 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.weekday {
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: #770030aa;
+}
+
+.date {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  text-align: center;
+  font-weight: 500;
+  z-index: 0;
+  border: 3px solid transparent;
+
+  &.lv1 {
+    border-color: #ffc3d5;
+  }
+
+  &.lv2 {
+    border-color: #da9bae;
+  }
+
+  &.lv3 {
+    border-color: #e56b8b;
+  }
+
+  &.lv4 {
+    border-color: #e20039;
+  }
+
+  &.lv5 {
+    border-color: #6d041f;
+  }
+}
+
+.today {
+  z-index: 1;
+  color: #ff4778;
+  font-weight: 700;
+}
+
+.dot {
+  position: absolute;
+  top: 86%;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  visibility: hidden;
+
+  &.restDay {
+    visibility: visible;
+    background: #d781a5;
+  }
+
+  &.activityDay {
+    visibility: visible;
+    background: #770030;
+  }
+}
+
+.underline {
+  position: absolute;
+  bottom: 0;
+  height: 5px;
+  border-radius: 9999px;
+  background: #ff4778;
+  pointer-events: none;
+  margin-top: 4px;
+
+  &.enableTransition {
+    transition:
+      left 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+      width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+.phaseBar {
+  position: absolute;
+  top: calc(86% + 2.5px);
+  height: 4px;
+  border-radius: 2px;
+  pointer-events: none;
+  z-index: 2;
+
+  &.buildPhase {
+    background: #770030;
+  }
+
+  &.restPhase {
+    background: #d781a5;
+  }
+}
+
+.monthBar {
+  position: absolute;
+  top: 0;
+  height: 3rem;
+  z-index: 0;
+  /* background: #7700301f; */
+  pointer-events: none;
+}
+
+.monthLabel {
+  position: sticky;
+  top: -2rem;
+  left: calc(50% - 2.5rem);
+  transform: translateX(-50%);
+  max-width: 100%;
+  min-width: fit-content;
+  padding: 0.3rem 0.6rem;
+  text-align: center;
+  letter-spacing: 0.05rem;
+  white-space: nowrap;
+  background-color: #ffebf3;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  /* box-shadow: 0 1.5px 3px #77003044; */
+}
+
+/* トレーナー */
+:global(.trainer-theme) .scroll {
+  color: #005014;
+  border-bottom-color: var(--trainer-primary);
+}
+
+:global(.trainer-theme) .weekday {
+  color: #005014aa;
+}
+
+:global(.trainer-theme) .date.lv1 {
+  border-color: #bfead0;
+}
+
+:global(.trainer-theme) .date.lv2 {
+  border-color: #85d7a5;
+}
+
+:global(.trainer-theme) .date.lv3 {
+  border-color: #49c87f;
+}
+
+:global(.trainer-theme) .date.lv4 {
+  border-color: #149b4b;
+}
+
+:global(.trainer-theme) .date.lv5 {
+  border-color: #005014;
+}
+
+:global(.trainer-theme) .today {
+  color: #4cbe5d;
+}
+
+:global(.trainer-theme) .dot.restDay {
+  background: #005014;
+  visibility: visible;
+}
+
+:global(.trainer-theme) .dot.activityDay {
+  background: #49c87f;
+  visibility: visible;
+}
+
+:global(.trainer-theme) .underline {
+  background: #4cbe5d;
+}
+
+:global(.trainer-theme) .phaseBar.buildPhase {
+  background: #49c87f;
+}
+
+:global(.trainer-theme) .phaseBar.restPhase {
+  background: #005014;
+}
+
+:global(.trainer-theme) .monthLabel {
+  background-color: #e6f4ea;
+}

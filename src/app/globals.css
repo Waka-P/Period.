@@ -1,0 +1,35 @@
+:root {
+  --trainer-primary: #9eedb2;
+  --trainer-accent: #00721d;
+  --athlete-primary: #ffcce1;
+  --athlete-primary-transparent: #ffcce144;
+  --athlete-accent: #b40030;
+}
+
+html,
+body {
+  font-family: "Zen Maru Gothic", sans-serif;
+}
+
+body {
+  width: 100%;
+  height: 100dvh;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+#main-content {
+  height: 100%;
+}
+
+#main-content:not(:has(.hide-nav-chat)),
+#main-content:not(.hide-nav-chat) {
+  padding-bottom: 8rem;
+}
+
+/* チャット表示時にナビゲーションを非表示 */
+.hide-nav-chat #app-navigation {
+  display: none !important;
+}

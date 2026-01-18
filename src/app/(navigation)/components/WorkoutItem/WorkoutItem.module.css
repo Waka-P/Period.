@@ -1,0 +1,75 @@
+.item {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+  padding: 1rem 1.5rem 1rem 2rem;
+  border-radius: 0.75rem;
+}
+
+.item::before {
+  content: "";
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  bottom: 0.35rem;
+  width: 0.35rem;
+  height: 65%;
+  border-radius: 999px;
+  background: var(--athlete-accent) /* 仮でとりあえず */;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  flex: 1;
+}
+
+.time {
+  font-size: 0.875rem;
+  color: var(--athlete-accent);
+}
+
+.timeIcon {
+  margin-right: 0.5rem;
+}
+
+.name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #770030;
+}
+
+.memo {
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  background: var(--athlete-primary-transparent);
+  font-size: 0.875rem;
+  color: #770030;
+}
+
+/* トレーナー */
+:global(.trainer-theme) .item {
+  pointer-events: none;
+}
+
+:global(.trainer-theme) .item::before {
+  background: var(--trainer-accent);
+}
+
+:global(.trainer-theme) .time {
+  color: var(--trainer-accent);
+}
+
+:global(.trainer-theme) .name {
+  color: #005014;
+}
+
+:global(.trainer-theme) .memo {
+  background: #9eedb244;
+  color: #005014;
+}

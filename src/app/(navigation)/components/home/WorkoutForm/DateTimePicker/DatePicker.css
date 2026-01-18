@@ -1,0 +1,56 @@
+.MuiPickersLayout-root {
+  color: #770030 !important;
+}
+
+.MuiDayCalendar-weekDayLabel {
+  color: #770030 !important;
+}
+
+.MuiPickersDay-root {
+  color: #770030 !important;
+  font-weight: 700 !important;
+}
+
+.MuiPickersDay-root.Mui-selected {
+  background-color: var(--athlete-primary) !important;
+  color: #770030 !important;
+}
+
+.MuiPickersDay-root:not(.Mui-selected) {
+  border-color: var(--athlete-primary) !important;
+}
+
+.MuiPickersDay-root.Mui-disabled:not(.Mui-selected) {
+  opacity: 0.4;
+}
+
+.MuiPickersDay-root.MuiPickersDay-dayOutsideMonth {
+  color: var(--athlete-primary) !important;
+  opacity: 0.4;
+}
+
+.MuiYearCalendar-button {
+  color: #770030 !important;
+  text-align: center !important;
+}
+
+.MuiYearCalendar-button.Mui-selected {
+  background-color: var(--athlete-primary) !important;
+  color: #770030 !important;
+}
+
+.MuiPickersCalendarHeader-label {
+  color: #770030 !important;
+}
+
+.MuiPickersCalendarHeader-switchViewIcon {
+  color: #770030 !important;
+}
+
+.MuiPickersArrowSwitcher-button {
+  color: #770030 !important;
+}
+
+.MuiPickersLayout-root .MuiSvgIcon-root {
+  color: #770030 !important;
+}

@@ -1,0 +1,60 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  height: 100dvh;
+  background-color: #000a;
+  z-index: 1000;
+
+  &.nested {
+    background-color: #0006;
+  }
+}
+
+.content {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  max-height: 95%;
+  background-color: #fff;
+  border-top-left-radius: 2rem;
+  border-top-right-radius: 2rem;
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+
+  &.nested {
+    max-height: 90%;
+  }
+}
+
+.handle {
+  margin-left: auto;
+  margin-right: auto;
+  flex-shrink: 0;
+  background-color: #888;
+  margin-bottom: 1rem;
+  border-radius: 9999px;
+  width: 3rem;
+  height: 0.375rem;
+}
+
+.body {
+  padding: 1rem 1.5rem;
+  flex: 1 1 0%;
+  overflow: auto;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border-width: 0;
+}

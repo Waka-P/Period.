@@ -1,0 +1,12 @@
+.actionBar {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-left: auto;
+  padding: 0 2rem 1rem 2rem;
+}
+
+.button {
+  font-size: 0.9rem;
+  color: var(--athlete-accent);
+}

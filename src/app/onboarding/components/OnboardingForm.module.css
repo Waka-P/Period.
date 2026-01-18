@@ -1,0 +1,335 @@
+.formWrapper {
+  height: 100%;
+  overflow-x: hidden;
+  position: relative;
+}
+
+.stepsContainer {
+  display: flex;
+  height: 100%;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.step {
+  position: relative;
+  min-width: 100%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem;
+  flex-shrink: 0;
+}
+
+.title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+.title::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 12dvh;
+  z-index: -1;
+  background: linear-gradient(
+    135deg,
+    var(--athlete-primary),
+    var(--trainer-primary)
+  );
+  mask-image: linear-gradient(to bottom, black 0%, black 60%, transparent 100%);
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    black 0%,
+    black 60%,
+    transparent 100%
+  );
+}
+
+.roleSwitchWarning {
+  color: #ce0037;
+  line-height: 1.5;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.nextBtn {
+  width: 90px;
+  text-align: center;
+  padding: 0.75rem;
+  border-radius: 9999px;
+  transition: background-color 0.3s ease;
+
+  &.disabled {
+    background-color: #8883;
+    color: #000;
+    cursor: not-allowed;
+  }
+}
+
+.cancelBtn {
+  width: fit-content;
+  height: 42.4px;
+  font-weight: 500;
+  color: #666;
+}
+
+.genderLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+
+  .infoBtn {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    border: 1px solid #888;
+    text-align: center;
+    font-size: 0.6rem;
+    line-height: 0.5rem;
+    cursor: help;
+  }
+}
+
+.genderInfoTitle {
+  margin: 2rem 0 1rem 0;
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.genderInfoText {
+  margin-bottom: 2rem;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.genderOptions {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.genderOption {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  border-radius: 1.5rem;
+  box-shadow: 0px 4px 12px 0px #0003;
+  cursor: pointer;
+  background: #fff;
+  border: 2px solid transparent;
+  overflow: hidden;
+  transition: border 0.3s ease;
+  z-index: 0;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--athlete-primary-transparent);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  &.active {
+    border-color: var(--athlete-primary);
+
+    &::before {
+      opacity: 1;
+    }
+  }
+
+  .genderIcon {
+    font-size: 2rem;
+  }
+
+  .genderLabel {
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+}
+
+.levelLabel {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.levelBtn {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--athlete-primary);
+  border-radius: 0.375rem;
+  font-size: 0.85rem;
+  outline: 3px solid;
+  outline-color: transparent;
+  transition: outline-color 0.3s ease;
+
+  &:hover,
+  &:active,
+  &:focus {
+    outline-color: var(--athlete-primary-transparent);
+  }
+}
+
+.levelModalTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.levelOption {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 1rem 1.25rem;
+  border-radius: 1.5rem;
+  box-shadow: 0px 4px 12px 0px #0003;
+  cursor: pointer;
+  background: #fff;
+  border: 2px solid transparent;
+  overflow: hidden;
+  transition: border 0.3s ease;
+  z-index: 0;
+  margin-bottom: 1rem;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--athlete-primary-transparent);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  &.active {
+    border-color: var(--athlete-primary);
+
+    &::before {
+      opacity: 1;
+    }
+  }
+
+  input {
+    display: none;
+  }
+}
+
+.levelOptionTitle {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.levelOptionText {
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  width: 100%;
+  margin-bottom: 1rem;
+
+  .withUnit {
+    display: flex;
+    align-items: flex-end;
+    gap: 0.5rem;
+
+    span {
+      width: 1.25rem;
+      text-align: right;
+      font-size: 0.75rem;
+    }
+  }
+
+  label {
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  .formInput {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--athlete-primary);
+    border-radius: 0.375rem;
+    font-size: 0.85rem;
+    outline: 3px solid;
+    outline-color: transparent;
+    transition: outline-color 0.3s ease;
+
+    &:focus {
+      outline-color: var(--athlete-primary-transparent);
+    }
+  }
+
+  input.hidden {
+    opacity: 0;
+    position: absolute;
+    pointer-events: none;
+  }
+}
+
+.error {
+  color: #f00;
+  font-size: 0.75rem;
+}
+
+.backBtn {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.athleteBg {
+  background-color: var(--athlete-primary);
+}
+
+.trainerBg {
+  background-color: var(--trainer-primary);
+}
+
+.athleteColor {
+  color: var(--athlete-accent);
+}
+
+.trainerColor {
+  color: var(--trainer-accent);
+}
+
+.formGroup {
+  margin-bottom: 1.5rem;
+  width: 100%;
+}
+
+.modalVariant .step {
+  justify-content: space-around;
+  gap: 1rem;
+}
+
+.modalVariant .title::before {
+  display: none;
+}

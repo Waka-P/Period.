@@ -1,0 +1,141 @@
+.navigation {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 5rem;
+  z-index: 100;
+}
+
+.navigation ul {
+  display: flex;
+  height: 100%;
+}
+
+.navigation li {
+  flex: 1;
+  height: 100%;
+}
+
+.navItem {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  transition: transform 0.3s ease;
+}
+
+.navIcon {
+  width: auto;
+  height: 2.75rem;
+}
+
+.navLabel {
+  font-size: 0.75rem;
+  font-weight: 700;
+  margin-top: 0.15rem;
+  opacity: 0;
+  max-height: 0;
+  transition: opacity 0.3s ease;
+}
+
+.navItem.active {
+  transform: translateY(calc(-15px - 0.15rem));
+
+  & .navLabel {
+    opacity: 1;
+    max-height: none;
+  }
+}
+
+.indicator {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translateX(-50%);
+  z-index: -1;
+
+  &.active {
+    top: -10px;
+  }
+
+  &.enableTransition {
+    transition: top 0.3s ease;
+  }
+}
+
+.indicator::before {
+  content: "";
+  position: absolute;
+  top: calc(50% - 0.15rem);
+  left: 50%;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #fff;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+}
+
+.indicator.enableTransition::before {
+  transition: opacity 0.3s ease;
+}
+
+.indicator.active::before {
+  opacity: 1;
+}
+
+.athleteBg {
+  background-color: var(--athlete-primary);
+}
+
+.athleteColor {
+  color: var(--athlete-accent);
+}
+
+.trainerBg {
+  background-color: var(--trainer-primary);
+}
+
+.trainerColor {
+  color: var(--trainer-accent);
+}
+
+.athleteBorder {
+  border-color: var(--athlete-primary);
+}
+
+.trainerBorder {
+  border-color: var(--trainer-primary);
+}
+
+.badge {
+  position: absolute;
+  top: -4px;
+  right: -8px;
+  color: #fff;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  min-width: 1.2rem;
+  height: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px #00000033;
+}
+
+.badgeAthlete {
+  background-color: #fd5d88;
+}
+
+.badgeTrainer {
+  background-color: #149b4b;
+}

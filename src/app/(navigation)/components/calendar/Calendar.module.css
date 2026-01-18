@@ -1,0 +1,305 @@
+.calendarContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: fit-content;
+  min-height: 100dvh;
+  max-width: calc(100% - 4rem);
+  margin: 0 auto 0 auto;
+  padding-top: 1rem;
+  padding-bottom: 8rem;
+  user-select: none;
+}
+
+.calendarStats {
+  position: absolute;
+  top: 5.3rem;
+  left: 0;
+  display: flex;
+  justify-content: space-around;
+  width: calc(100% - 2rem);
+  max-width: 400px;
+  min-width: fit-content;
+  margin: 0 1rem;
+  padding: 0.7rem 2rem;
+  background-color: #ffcce133;
+  border-radius: 999px;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  width: 30%;
+  min-width: fit-content;
+}
+
+.number {
+  font-size: 1.7rem;
+  font-weight: 900;
+  color: var(--athlete-accent);
+}
+
+.label {
+  font-size: 0.6rem;
+  font-weight: 500;
+  color: #770030;
+  opacity: 0.5;
+}
+
+.calendarTags {
+  position: absolute;
+  top: 10.5rem;
+  left: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+  width: calc(100% - 2rem);
+  max-width: 400px;
+  min-width: fit-content;
+  margin: 0 1rem;
+}
+
+.tag {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  width: 90%;
+  min-width: fit-content;
+  margin: 0 auto;
+  padding: 0.4rem 0.8rem;
+  white-space: nowrap;
+  background-color: #fff;
+  border-radius: 999px;
+  border: var(--athlete-primary) 1.5px solid;
+  color: #770030;
+  font-size: 0.63rem;
+  font-weight: 700;
+  box-shadow: 0 1px 2px #77003066;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &.active {
+    background-color: var(--athlete-primary);
+    color: #fff;
+    font-weight: 900;
+  }
+}
+
+.good,
+.heavy {
+  display: block;
+  background-color: var(--athlete-accent);
+  border-radius: 2px;
+}
+
+.care,
+.rest {
+  display: block;
+  background-color: #e9b3c1;
+  border-radius: 999px;
+}
+
+.good,
+.care {
+  width: 0.8rem;
+  height: 0.8rem;
+}
+
+.heavy,
+.rest {
+  width: 1.5rem;
+  height: 0.8rem;
+}
+
+/* モーダル */
+.modalCont {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-height: 40dvh;
+  padding: 1rem 0.8rem;
+}
+
+.trainingDesc {
+  text-align: justify;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #510020;
+}
+
+.noPartnerCont {
+  height: 100dvh;
+}
+
+.settingsIcon {
+  margin: 3rem auto 2rem auto;
+  font-size: 10rem;
+  color: var(--trainer-primary);
+  opacity: 0.7;
+}
+
+.noPartner {
+  position: absolute;
+  top: calc(50% - 80px);
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  line-height: 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #005014;
+}
+
+.toSettingLink {
+  color: var(--trainer-accent);
+  text-decoration: underline;
+}
+
+.title {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #770030;
+}
+
+.workouts {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--athlete-primary);
+}
+
+/* トレーナー */
+.trainerTheme .title {
+  color: #005014;
+}
+
+.trainerTheme .workouts {
+  border-color: var(--trainer-primary);
+}
+
+.trainerTheme .number {
+  color: var(--trainer-accent);
+}
+
+.trainerTheme .label {
+  color: #005014;
+  opacity: 0.5;
+}
+
+.trainerTheme .calendarStats {
+  background-color: #9eedb233;
+}
+
+.trainerTheme .tag {
+  border: var(--trainer-primary) 1.5px solid;
+  color: #005014;
+  box-shadow: 0 1px 2px #00501466;
+}
+
+.trainerTheme .tag:hover {
+  box-shadow: 0 2px 4px #00501488;
+}
+
+.trainerTheme .tagActive {
+  background-color: var(--trainer-primary);
+  color: #fff;
+  box-shadow: 0 2px 6px #005014aa;
+}
+
+.trainerTheme .good,
+.trainerTheme .heavy {
+  background-color: var(--trainer-accent);
+}
+
+.trainerTheme .care,
+.trainerTheme .rest {
+  background-color: var(--trainer-primary);
+}
+
+/* タイルコンテンツラッパー */
+.tileContentWrapper {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ドット */
+.dot {
+  position: absolute;
+  bottom: 10px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.dot.restDay {
+  visibility: visible;
+  background: #d781a5;
+}
+
+.dot.activityDay {
+  visibility: visible;
+  background: #770030;
+}
+
+/* phaseBar（連続期間をつなげる） */
+.phaseBar {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: transparent;
+  pointer-events: none;
+  z-index: 9;
+}
+
+.phaseBar.buildPhase {
+  background: #770030;
+}
+
+.phaseBar.restPhase {
+  background: #d781a5;
+}
+
+/* フェーズの開始と終了に丸みをつける */
+.phaseBar.phaseStart {
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+
+.phaseBar.phaseEnd {
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+
+/* トレーナーテーマ */
+.trainerTheme .dot.restDay {
+  background: #005014;
+}
+
+.trainerTheme .dot.activityDay {
+  background: #49c87f;
+}
+
+.trainerTheme .phaseBar.buildPhase {
+  background: #49c87f;
+}
+
+.trainerTheme .phaseBar.restPhase {
+  background: #005014;
+}

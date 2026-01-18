@@ -1,0 +1,43 @@
+.workoutsWrapper {
+  height: 100%;
+  min-height: calc(100dvh - 180px);
+  margin-top: 1.5rem;
+  padding: 0 1.5rem;
+  padding-bottom: calc(80px + 2rem);
+}
+
+.title {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #770030;
+}
+
+.workouts {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--athlete-primary);
+}
+
+/* トレーナー */
+.trainerTheme .title {
+  color: #005014;
+}
+
+.trainerTheme .workouts {
+  border-color: var(--trainer-primary);
+}
+
+.formModalContent {
+  background-color: #fff;
+}
+
+.formModalBody {
+  background-color: #ffcce117;
+}
+
+.formModalHandle {
+  background-color: var(--athlete-accent);
+}

@@ -1,0 +1,29 @@
+.button {
+  position: fixed;
+  bottom: calc(5rem + 1rem);
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: var(--athlete-primary);
+  color: var(--athlete-accent);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 100;
+}
+
+.formModalContent {
+  background-color: #fff;
+}
+
+.formModalBody {
+  background-color: #ffcce117;
+}
+
+.formModalHandle {
+  background-color: var(--athlete-accent);
+}

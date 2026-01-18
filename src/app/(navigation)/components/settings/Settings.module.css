@@ -1,0 +1,528 @@
+.title {
+  padding: 2rem 0;
+  text-align: center;
+  font-weight: 600;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: calc(100% - 4.5rem);
+  height: fit-content;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 0 0 7rem 0;
+  color: #5600227a;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.heading {
+  position: relative;
+  width: fit-content;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--athlete-accent);
+  opacity: 0.5;
+}
+
+.infoBtn {
+  position: absolute;
+  bottom: 0.005rem;
+  right: -1.8rem;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  border: 1px solid var(--athlete-accent);
+  color: var(--athlete-accent);
+  text-align: center;
+  font-size: 0.6rem;
+  line-height: 0.5rem;
+  outline: none;
+  cursor: help;
+}
+
+.secCont {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  padding: 1.3rem 1.5rem;
+  border-radius: 10px;
+  border: solid 1px var(--athlete-primary);
+  background-color: #ffcce117;
+}
+
+.profItem {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.3rem;
+  min-height: 1.6rem;
+}
+
+.profItem > div:first-of-type {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  height: 1.6rem;
+}
+
+.label {
+  width: 80px;
+  min-width: 80px;
+  color: #770030;
+  font-weight: 500;
+}
+
+.errorText {
+  width: 100%;
+  padding-left: calc(80px + 1rem);
+  margin-top: -0.1rem;
+  font-size: 0.85rem;
+  color: #bb0000;
+  font-weight: 400;
+  line-height: 1.3;
+  text-align: right;
+}
+
+.value {
+  width: 100%;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: right;
+  font-weight: 500;
+  outline: none;
+}
+
+.unit {
+  display: inline-block;
+  font-weight: 500;
+}
+
+.inputWrapper {
+  position: relative;
+  width: 100%;
+  max-width: calc(100% - 2rem);
+}
+
+.inputSaveBtn {
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0.3rem;
+  border: none;
+  background-color: var(--athlete-primary);
+  color: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.valueRow {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.4rem;
+  width: calc(100% - 8rem);
+  min-width: 125px;
+  max-width: 150px;
+}
+
+.profItem:first-child .inputWrapper {
+  width: 100%;
+  max-width: 300px;
+}
+
+.valueInput {
+  width: 100%;
+  max-width: 100%;
+  padding: 0.5rem 3rem 0.5rem 1rem;
+  background-color: #fff;
+  text-align: left;
+  border-radius: 999px;
+  border: solid 1.5px var(--athlete-primary);
+  color: #770030;
+  font-weight: 500;
+  outline: none;
+}
+
+.settingCont {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.partnerStatus {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  width: 100%;
+}
+
+.settingValue {
+  font-weight: 500;
+}
+
+.settingBtn {
+  min-width: fit-content;
+  padding: 0.5rem 1.1rem;
+  border: solid 1.5px var(--athlete-primary);
+  border-radius: 999px;
+  background-color: #fff;
+  color: var(--athlete-accent);
+  font-size: 0.9rem;
+  font-weight: 500;
+  white-space: nowrap;
+  box-shadow: 0 2px 3.5px #77003044;
+  outline: none;
+  cursor: pointer;
+}
+
+.completeBtn {
+  min-width: fit-content;
+  padding: 0.5rem 1.1rem;
+  border: solid 1.5px #fc8db9;
+  border-radius: 999px;
+  background-color: #fea0c6;
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 500;
+  white-space: nowrap;
+  box-shadow: 0 2px 3.5px #77003044;
+  outline: none;
+  cursor: pointer;
+}
+
+.info {
+  margin: 2.3rem 1rem 1.5rem 1rem;
+  text-align: center;
+  line-height: 1.4;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #540022;
+}
+
+.genderInfoText {
+  margin: 2rem 1rem;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.genderOptions {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.fullScreenModal {
+  margin-top: 0;
+  padding: 0;
+  top: 0;
+  bottom: 0;
+}
+
+/* パートナー連携 */
+.LinkModalTitle {
+  padding: 1.8rem 0 1rem 0;
+  text-align: center;
+  font-weight: 600;
+  color: #540022;
+}
+
+.LinkBtnCont {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin: 1rem auto 0 auto;
+  padding: 1rem 2rem;
+  min-width: fit-content;
+  max-width: 400px;
+}
+
+.unlinkBtn {
+  border-color: #bb0000;
+  color: #bb0000;
+  box-shadow: 0 2px 3.5px #80000055;
+}
+
+.LinkBtn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 1.5rem;
+  border: solid 1.5px var(--athlete-primary);
+  border-radius: 999px;
+  background-color: #fff;
+  color: var(--athlete-accent);
+  font-size: 0.9rem;
+  font-weight: 500;
+  box-shadow: 0 2px 3.5px #77003044;
+  outline: none;
+  cursor: pointer;
+}
+
+/* 招待コード入力 */
+.LinkInputCont {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  min-width: fit-content;
+  max-width: 400px;
+  position: relative;
+}
+
+.LinkInput {
+  width: 100%;
+  margin: 2rem 0 3rem 0;
+  padding: 0.8rem 1rem;
+  background-color: #fff;
+  border-radius: 999px;
+  border: solid 1.5px var(--athlete-primary);
+  color: #770030;
+  font-weight: 500;
+  outline: none;
+
+  &::placeholder {
+    color: #ccc;
+  }
+}
+
+.LinkActions {
+  display: flex;
+  gap: 2rem;
+  justify-content: space-around;
+  position: relative;
+  width: 80%;
+  min-width: fit-content;
+  margin: 0 auto;
+}
+
+.CodeBox {
+  margin: 0.5rem auto;
+  padding: 1rem 1.5rem;
+  border: dashed 2px var(--athlete-primary);
+  border-radius: 999px;
+  background-color: #fff;
+  font-weight: 700;
+  font-size: 1.2rem;
+  letter-spacing: 0.1em;
+  text-align: center;
+  color: var(--athlete-accent);
+  user-select: all;
+}
+
+.CodeActions {
+  position: relative;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin: 1.5rem 0 2rem 0;
+}
+
+.LinkStatus {
+  position: absolute;
+  top: -2.5rem;
+  right: 50%;
+  transform: translateX(50%);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--athlete-accent);
+}
+
+/* 招待コードエラー */
+.LinkError {
+  position: absolute;
+  top: -3rem;
+  right: 50%;
+  transform: translateX(50%);
+  width: 100%;
+  text-align: center;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #bb0000;
+}
+
+/* スライド切替 */
+.LinkStepsContainer {
+  display: flex;
+  width: 100%;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+  touch-action: pan-y;
+  overscroll-behavior-x: contain;
+}
+
+.LinkStepsViewport {
+  width: 100%;
+  overflow: hidden;
+}
+
+.LinkStep {
+  min-width: 100%;
+  width: 100%;
+  height: fit-content;
+  flex-shrink: 0;
+}
+
+.partnerNameCont {
+  position: relative;
+  width: fit-content;
+  max-width: calc(100% - 3.2rem);
+  font-size: 0.85rem;
+  font-weight: 500;
+  opacity: 0.6;
+}
+
+.partnerName {
+  width: fit-content;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.honorific {
+  position: absolute;
+  right: -2rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.logoutBtn {
+  width: fit-content;
+  margin-top: 1rem;
+  font-weight: 500;
+  outline: none;
+}
+
+.deleteCont {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  padding: 2rem;
+}
+
+.deleteText {
+  text-align: center;
+  color: #bb0000;
+  font-weight: 500;
+}
+
+.deleteBtnCont {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.deleteConfirmBtn {
+  width: fit-content;
+  margin-top: 0.5rem;
+  font-weight: 500;
+  color: #bb0000;
+  outline: none;
+}
+
+.deleteBtn {
+  padding: 0.8rem 1.5rem;
+  border-radius: 999px;
+  background-color: #bb0000;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 500;
+  box-shadow: 0 2px 3.5px #800000aa;
+  outline: none;
+}
+
+.deleteCancelBtn {
+  font-weight: 500;
+  color: #888;
+  outline: none;
+}
+
+/* トレーナー */
+.trainerTheme {
+  --athlete-primary: var(--trainer-primary);
+  --athlete-accent: var(--trainer-accent);
+
+  color: #00501499;
+}
+
+.trainerTheme .secCont {
+  border-color: var(--trainer-primary);
+  background-color: #9eedb211;
+}
+
+.trainerTheme .label {
+  color: #005014;
+}
+
+.trainerTheme .valueInput {
+  color: #004010;
+}
+
+.trainerTheme .inputSaveBtn {
+  background-color: #87dc9c;
+}
+
+.trainerTheme .settingBtn {
+  box-shadow: 0 2px 3.5px #00721d55;
+}
+
+.trainerModal .info {
+  color: #00300c;
+}
+
+.trainerModal {
+  --athlete-primary: var(--trainer-primary);
+  --athlete-accent: var(--trainer-accent);
+}
+
+.trainerModal .LinkModalTitle {
+  color: #00300c;
+}
+
+.trainerModal .LinkBtn {
+  box-shadow: 0 2px 3.5px #00721d55;
+}
+
+/* 完了アイコン */
+.DoneIcon {
+  display: block;
+  margin: 0 auto 1.2rem auto;
+  font-size: 3rem;
+  line-height: 1;
+  color: var(--athlete-accent);
+}
+
+.trainerModal .settingBtn {
+  box-shadow: 0 2px 3.5px #00721d55;
+}
+
+.trainerModal .completeBtn {
+  background-color: #52c26e;
+  border: solid 1.5px #3da557;
+  box-shadow: 0 2px 3.5px #00721d55;
+}
+
+.settingBtn.unlinkBtn {
+  border-color: #bb0000;
+  color: #bb0000;
+  box-shadow: 0 2px 3.5px #80000055;
+}
+
+.trainerModal .LinkInput {
+  color: #004010;
+}

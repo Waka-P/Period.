@@ -1,0 +1,13 @@
+.trigger {
+  width: fit-content;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--athlete-primary);
+  border-radius: 9999px;
+  background-color: #fff;
+  color: #770030;
+}
+
+.triggerIcon {
+  margin-left: 1rem;
+  color: var(--athlete-accent);
+}

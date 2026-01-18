@@ -1,0 +1,269 @@
+.react-calendar {
+  border: none;
+  color: #770030;
+  font-size: 1.05rem;
+  font-family: var(--font-zen-maru-gothic), sans-serif;
+}
+
+.react-calendar button {
+  width: fit-content;
+  height: fit-content;
+  transition: all 0.2s ease;
+}
+
+.react-calendar button:hover {
+  transition: all 0.2s ease;
+}
+
+.react-calendar__tile {
+  padding-bottom: 1.5rem;
+  border-bottom: var(--athlete-primary) 0.5px solid !important;
+}
+
+/* ナビゲーション */
+.react-calendar__navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  margin-bottom: 11rem;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+.react-calendar__navigation__prev-button,
+.react-calendar__navigation__prev2-button,
+.react-calendar__navigation__next-button,
+.react-calendar__navigation__next2-button {
+  background: none !important;
+  min-width: fit-content !important;
+  font-size: 2.2rem;
+  font-weight: 500;
+  color: var(--athlete-accent);
+}
+
+.react-calendar__navigation__prev-button:hover,
+.react-calendar__navigation__prev2-button:hover,
+.react-calendar__navigation__next-button:hover,
+.react-calendar__navigation__next2-button:hover {
+  opacity: 0.8;
+}
+
+.react-calendar__navigation__prev-button,
+.react-calendar__navigation__next-button {
+  padding-bottom: 0.2rem;
+}
+
+.react-calendar__navigation__prev2-button,
+.react-calendar__navigation__next2-button {
+  font-size: 1.7rem;
+}
+
+.react-calendar__navigation__label {
+  max-width: 100%;
+  min-width: fit-content !important;
+  margin: 0 2rem !important;
+  padding: 0.3rem 0.6rem;
+  text-align: center;
+  letter-spacing: 0.05rem;
+  white-space: nowrap;
+  background-color: #ffebf3 !important;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  box-shadow: 0 1.5px 3px #77003044;
+}
+
+/* 曜日 */
+.react-calendar__month-view__weekdays__weekday {
+  padding: 1rem 0 0 0 !important;
+  color: #770030;
+  opacity: 0.3;
+  border: none;
+  font-weight: normal;
+}
+
+.react-calendar__month-view__weekdays abbr {
+  text-decoration: none;
+  border-bottom: none;
+}
+
+/* 土日 */
+.react-calendar__month-view__weekdays__weekday--weekend {
+  color: #770030;
+  opacity: 0.5;
+}
+
+.react-calendar__month-view__days__day--weekend abbr {
+  opacity: 0.8;
+}
+
+/* 日付 */
+.react-calendar__tile {
+  position: relative;
+  font-weight: 500;
+}
+
+.react-calendar__tile abbr {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  z-index: 1;
+}
+
+/* 負荷レベルに応じたborder */
+.react-calendar__tile.load-lv1 abbr {
+  border-color: #ffc3d5;
+}
+
+.react-calendar__tile.load-lv2 abbr {
+  border-color: #da9bae;
+}
+
+.react-calendar__tile.load-lv3 abbr {
+  border-color: #e56b8b;
+}
+
+.react-calendar__tile.load-lv4 abbr {
+  border-color: #e20039;
+}
+
+.react-calendar__tile.load-lv5 abbr {
+  border-color: #6d041f;
+}
+
+/* トレーナーテーマの負荷レベルborder */
+.trainer-theme .react-calendar__tile.load-lv1 abbr {
+  border-color: #bfead0;
+}
+
+.trainer-theme .react-calendar__tile.load-lv2 abbr {
+  border-color: #85d7a5;
+}
+
+.trainer-theme .react-calendar__tile.load-lv3 abbr {
+  border-color: #49c87f;
+}
+
+.trainer-theme .react-calendar__tile.load-lv4 abbr {
+  border-color: #149b4b;
+}
+
+.trainer-theme .react-calendar__tile.load-lv5 abbr {
+  border-color: #005014;
+}
+
+.react-calendar__tile:hover {
+  background: #ffb3c911 !important;
+  color: var(--athlete-accent);
+}
+
+/* 今日 */
+.react-calendar__tile--now,
+.react-calendar__tile--now.react-calendar__tile--active {
+  font-weight: 900;
+  color: #ff4778;
+  background: none;
+}
+
+.react-calendar__tile--now:hover {
+  color: #ff4778;
+}
+
+/* 選択中の日付 */
+.react-calendar__tile--active {
+  background: none !important;
+  color: var(--athlete-accent);
+}
+
+.react-calendar__tile--active:hover {
+  background: #ffb3c933 !important;
+}
+
+/* 前後月の日付 */
+.react-calendar__month-view__days__day--neighboringMonth {
+  color: var(--athlete-primary) !important;
+}
+
+.react-calendar__month-view__days__day--neighboringMonth:hover {
+  color: var(--athlete-primary);
+}
+
+/* トレーナーテーマ用の配色 */
+.trainer-theme .react-calendar {
+  color: #005014;
+}
+
+.trainer-theme .react-calendar__tile {
+  border-bottom: var(--trainer-primary) 0.5px solid !important;
+}
+
+.trainer-theme .react-calendar__navigation__prev-button,
+.trainer-theme .react-calendar__navigation__prev2-button,
+.trainer-theme .react-calendar__navigation__next-button,
+.trainer-theme .react-calendar__navigation__next2-button {
+  color: var(--trainer-accent);
+}
+
+.trainer-theme .react-calendar__navigation__label {
+  background-color: #eafff2 !important;
+  box-shadow: 0 1.5px 3px #00501444;
+}
+
+.trainer-theme .react-calendar__month-view__weekdays__weekday {
+  color: #005014;
+  opacity: 0.3;
+}
+
+.trainer-theme .react-calendar__month-view__weekdays__weekday--weekend {
+  color: #005014;
+  opacity: 0.5;
+}
+
+.trainer-theme .react-calendar__month-view__days__day--weekend {
+  color: #005014;
+}
+
+.trainer-theme .react-calendar__tile:hover {
+  background: #9eedb211 !important;
+  color: var(--trainer-accent);
+}
+
+.trainer-theme .react-calendar__tile--now,
+.trainer-theme .react-calendar__tile--now.react-calendar__tile--active {
+  color: #4cbe5d;
+  background: none;
+}
+
+.trainer-theme .react-calendar__tile--now:hover {
+  color: var(--trainer-accent);
+}
+
+.trainer-theme .react-calendar__tile--active {
+  background: none !important;
+  color: var(--trainer-accent);
+}
+
+.trainer-theme .react-calendar__tile--active:hover {
+  background: #9eedb233 !important;
+}
+
+.trainer-theme .react-calendar__month-view__days__day--neighboringMonth {
+  color: var(--trainer-primary) !important;
+}
+
+.trainer-theme .react-calendar__month-view__days__day--neighboringMonth:hover {
+  color: var(--trainer-primary);
+}
+
+/* フィルター適用時 */
+.react-calendar__tile.filtered-out {
+  opacity: 0.15 !important;
+  pointer-events: none;
+}

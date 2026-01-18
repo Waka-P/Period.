@@ -1,0 +1,192 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id               String    @id
+  name             String
+  email            String
+  emailVerified    Boolean   @default(false)
+  image            String?
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+  profileCompleted Boolean   @default(false)
+  role             UserRole?
+
+  sessions Session[]
+  accounts Account[]
+
+  athletePartners TrainerAthletePartner[] @relation("AthleteRelation")
+  trainerPartners TrainerAthletePartner[] @relation("TrainerRelation")
+
+  sentMessages     ChatMessage[] @relation("SentMessages")
+  receivedMessages ChatMessage[] @relation("ReceivedMessages")
+
+  workouts        Workout[]
+  partnerInvites  PartnerInvite[]
+  athleteProfiles AthleteProfile[]
+
+  @@unique([email])
+  @@map("users")
+}
+
+model AthleteProfile {
+  userId        String        @id
+  gender        Gender
+  heightCm      Int
+  weightKg      Float
+  age           Int
+  activityLevel ActivityLevel
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("athlete_profiles")
+}
+
+model TrainerAthletePartner {
+  id        String   @id
+  athleteId String
+  trainerId String
+  createdAt DateTime @default(now())
+
+  athlete User @relation("AthleteRelation", fields: [athleteId], references: [id], onDelete: Cascade)
+  trainer User @relation("TrainerRelation", fields: [trainerId], references: [id], onDelete: Cascade)
+
+  chat ChatRoom?
+
+  @@unique([athleteId, trainerId])
+  @@map("trainer_athlete_partners")
+}
+
+model PartnerInvite {
+  id        String    @id
+  code      String    @unique
+  issuerId  String
+  expiresAt DateTime
+  usedAt    DateTime?
+
+  issuer User @relation(fields: [issuerId], references: [id], onDelete: Cascade)
+
+  @@index([issuerId])
+  @@map("partner_invites")
+}
+
+model ChatRoom {
+  id        String   @id
+  partnerId String   @unique
+  createdAt DateTime @default(now())
+
+  partner  TrainerAthletePartner @relation(fields: [partnerId], references: [id], onDelete: Cascade)
+  messages ChatMessage[]
+
+  @@map("chat_rooms")
+}
+
+model ChatMessage {
+  id         String            @id
+  chatRoomId String
+  senderId   String
+  receiverId String
+  content    String
+  readStatus MessageReadStatus @default(UNREAD)
+  createdAt  DateTime          @default(now())
+
+  chatRoom ChatRoom @relation(fields: [chatRoomId], references: [id], onDelete: Cascade)
+  sender   User     @relation("SentMessages", fields: [senderId], references: [id])
+  receiver User     @relation("ReceivedMessages", fields: [receiverId], references: [id])
+
+  @@index([chatRoomId])
+  @@index([receiverId, readStatus])
+  @@map("chat_messages")
+}
+
+model Workout {
+  id           String   @id
+  athleteId    String
+  workoutDate  DateTime
+  startTime    DateTime
+  endTime      DateTime
+  loadLevel    Int // 1〜5（アプリ側で制限）
+  trainingName String
+  memo         String?
+  createdAt    DateTime @default(now())
+
+  athlete User @relation(fields: [athleteId], references: [id], onDelete: Cascade)
+
+  @@index([athleteId, workoutDate])
+  @@map("workouts")
+}
+
+model Session {
+  id        String   @id
+  expiresAt DateTime
+  token     String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  ipAddress String?
+  userAgent String?
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([token])
+  @@index([userId])
+  @@map("sessions")
+}
+
+model Account {
+  id                    String    @id
+  accountId             String
+  providerId            String
+  userId                String
+  user                  User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  accessToken           String?
+  refreshToken          String?
+  idToken               String?
+  accessTokenExpiresAt  DateTime?
+  refreshTokenExpiresAt DateTime?
+  scope                 String?
+  password              String?
+  createdAt             DateTime  @default(now())
+  updatedAt             DateTime  @updatedAt
+
+  @@index([userId])
+  @@map("accounts")
+}
+
+model Verification {
+  id         String   @id
+  identifier String
+  value      String
+  expiresAt  DateTime
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@index([identifier])
+  @@map("verifications")
+}
+
+enum UserRole {
+  ATHLETE
+  TRAINER
+}
+
+enum Gender {
+  MALE
+  FEMALE
+}
+
+enum ActivityLevel {
+  BEGINNER
+  INTERMEDIATE
+  ADVANCED
+}
+
+enum MessageReadStatus {
+  UNREAD
+  READ
+}

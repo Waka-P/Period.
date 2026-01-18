@@ -1,0 +1,40 @@
+.MuiPickersLayout-root {
+  color: #770030 !important;
+}
+
+.MuiPickersArrowSwitcher-button {
+  color: #770030 !important;
+}
+
+.MuiPickersLayout-root .MuiSvgIcon-root {
+  color: #770030 !important;
+}
+
+.MuiClock-pin {
+  background-color: #770030 !important;
+}
+
+.MuiClockPointer-root {
+  background-color: #770030 !important;
+}
+
+.MuiClockNumber-root {
+  color: #770030 !important;
+
+  &.Mui-disabled {
+    opacity: 0.2;
+  }
+}
+
+.MuiClockPointer-thumb {
+  border-color: #770030 !important;
+  background-color: var(--athlete-primary) !important;
+}
+
+.MuiTypography-root {
+  color: #770030 !important;
+}
+
+.MuiClock-clock {
+  background-color: var(--athlete-primary-transparent) !important;
+}
